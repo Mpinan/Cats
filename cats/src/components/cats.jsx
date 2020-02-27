@@ -11,7 +11,11 @@ class DataTable extends Component {
               {cat.name}
             </a>
           </td>
-          <Button color="primary" id="toggler" style={{ marginBottom: "1rem" }}>
+          <Button
+            color="secondary"
+            id="toggler"
+            style={{ marginBottom: "1rem" }}
+          >
             See Description
           </Button>
           <UncontrolledCollapse toggler="#toggler">
@@ -19,19 +23,21 @@ class DataTable extends Component {
           </UncontrolledCollapse>
           <td>{cat.origin}</td>
           <td>{cat.temperament}</td>
+          <td>{cat.dog_friendly}</td>
           <td></td>
         </tr>
       );
     });
 
     return (
-      <Table striped>
+      <Table striped responsive hover>
         <thead>
           <tr>
             <th>Name</th>
             <th>Description</th>
             <th>Origin</th>
             <th>Temperament</th>
+            <th>Dog friendly</th>
           </tr>
         </thead>
         <tbody>{cats}</tbody>

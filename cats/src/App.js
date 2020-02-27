@@ -7,9 +7,11 @@ class App extends Component {
   state = {
     cats: []
   };
+
   componentDidMount() {
     this.getCats();
   }
+
   getCats() {
     fetch(`https://api.thecatapi.com/v1/breeds?${api}`)
       .then(response => response.json())
@@ -23,7 +25,7 @@ class App extends Component {
       <Container className="App">
         <Row>
           <Col>
-            <h1 style={{ margin: "20px 0" }}>The Cat Dictionary</h1>
+            <h1 style={{ margin: "20px 0" }}>The Purrfection</h1>
           </Col>
         </Row>
         <Row>
