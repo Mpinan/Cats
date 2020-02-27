@@ -1,9 +1,15 @@
 import React, { Component } from "react";
+import Cats from "./components/cats";
+import { Container, Row, Col } from "reactstrap";
 const api = "c9ec6e51-269f-4979-a0c7-4d42c125f570";
 
 class App extends Component {
-  state = {};
-
+  state = {
+    cats: []
+  };
+  componentDidMount() {
+    this.getCats();
+  }
   getCats() {
     fetch(`https://api.thecatapi.com/v1/breeds?${api}`)
       .then(response => response.json())
@@ -13,7 +19,20 @@ class App extends Component {
   }
 
   render() {
-    return <div className="App"></div>;
+    return (
+      <Container className="App">
+        <Row>
+          <Col>
+            <h1 style={{ margin: "20px 0" }}>The Cat Dictionary</h1>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Cats items={this.state.cats} />
+          </Col>
+        </Row>
+      </Container>
+    );
   }
 }
 
