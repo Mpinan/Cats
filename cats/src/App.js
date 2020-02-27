@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+const api = "c9ec6e51-269f-4979-a0c7-4d42c125f570";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {};
+
+  getCats() {
+    fetch(`https://api.thecatapi.com/v1/breeds?${api}`)
+      .then(response => response.json())
+      .then(result => this.setState({ cats: result }))
+      .then(result => console.log(this.state.cats))
+      .catch(err => console.log(err));
+  }
+
+  render() {
+    return <div className="App"></div>;
+  }
 }
 
 export default App;
