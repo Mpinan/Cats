@@ -3,7 +3,7 @@ import { Table, Button, UncontrolledCollapse } from "reactstrap";
 
 class DataTable extends Component {
   render() {
-    const cats = this.props.items.map(cat => {
+    const cats = this.props.cats.map(cat => {
       return (
         <tr key={cat.id}>
           <td>

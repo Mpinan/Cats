@@ -5,7 +5,9 @@ const api = "c9ec6e51-269f-4979-a0c7-4d42c125f570";
 
 class App extends Component {
   state = {
-    cats: []
+    cats: [],
+    currentPage: 1,
+    catsPerPage: 5
   };
 
   componentDidMount() {
@@ -21,16 +23,21 @@ class App extends Component {
   }
 
   render() {
+    // Pagination
+    const indexLastCat = this.state.currentPage * this.state.catsPerPage;
+    const indexFirstCat = indexLastCat - this.state.catsPerPage;
+    const currentCats = this.state.cats.slice(indexFirstCat, indexLastCat);
+
     return (
       <Container className="App">
         <Row>
           <Col>
-            <h1 style={{ margin: "20px 0" }}>The Purrfection</h1>
+            <h1 style={{ margin: "20px 0" }}>The Purrfect Cattionary</h1>
           </Col>
         </Row>
         <Row>
           <Col>
-            <Cats items={this.state.cats} />
+            <Cats cats={currentCats} />
           </Col>
         </Row>
       </Container>

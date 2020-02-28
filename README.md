@@ -1,4 +1,4 @@
-# Purrrfection
+# The Purrfect Cattionary
 
 A Web Page that renders information about Purrrfect cats from TheCatApi
 
