@@ -23,7 +23,7 @@ I want to paginate the cats information
 ## Planning
 
 First thought when planning the app was to build it in C#.
-Due to time restrintions, I had finally decided to do it in React with little styling.
+Due to time restrintions, I had finally decided to do it in React with little styling which is what I am currently learning apart from Express.js.
 Since I thought it was going to take me longer, I also tried to do a comparison app between dogs and cats using both cat and dog API
 
 ## Running the app
@@ -31,5 +31,7 @@ Since I thought it was going to take me longer, I also tried to do a comparison 
 - Clone this repo
 - `npm install`
 - `npm start`
+
+![alt text](https://github.com/jaitone/Cats/catApp.png)
 
 Enjoy this Purrrrfect app.
