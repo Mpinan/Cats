@@ -32,6 +32,6 @@ Since I thought it was going to take me longer, I also tried to do a comparison 
 - `npm install`
 - `npm start`
 
-![alt text](https://github.com/jaitone/Cats/catApp.png)
+![alt text](https://github.com/jaitone/Cats/catApp.jpg)
 
 Enjoy this Purrrrfect app.
