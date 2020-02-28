@@ -10,6 +10,7 @@ class DataTable extends Component {
             <a target="_blank" href={cat.cfa_url}>
               {cat.name}
             </a>
+            <td></td>
           </td>
           <Button
             color="secondary"
