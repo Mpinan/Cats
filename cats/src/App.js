@@ -29,6 +29,10 @@ class App extends Component {
     const indexFirstCat = indexLastCat - this.state.catsPerPage;
     const currentCats = this.state.cats.slice(indexFirstCat, indexLastCat);
 
+    const handlePageChange = number => {
+      this.setState({ currentPage: number });
+    };
+
     return (
       <Container className="App">
         <Row>
@@ -44,6 +48,7 @@ class App extends Component {
         <Paginate
           catsPerPage={this.state.catsPerPage}
           totalCats={this.state.cats.length}
+          passPage={handlePageChange}
         />
       </Container>
     );

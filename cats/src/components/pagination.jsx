@@ -1,7 +1,7 @@
 import React from "react";
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
 
-const Paginate = ({ catsPerPage, totalCats }) => {
+const Paginate = ({ catsPerPage, totalCats, passPage }) => {
   const pageNumbers = [];
 
   for (let i = 1; i <= Math.ceil(totalCats / catsPerPage); i++) {
@@ -12,7 +12,9 @@ const Paginate = ({ catsPerPage, totalCats }) => {
     <Pagination aria-label="Page navigation example">
       {pageNumbers.map(number => (
         <PaginationItem>
-          <PaginationLink href="#">{number}</PaginationLink>
+          <PaginationLink onClick={() => passPage(number)}>
+            {number}
+          </PaginationLink>
         </PaginationItem>
       ))}
     </Pagination>
