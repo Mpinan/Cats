@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Cats from "./components/cats";
 import { Container, Row, Col } from "reactstrap";
+import Cats from "./components/cats";
+import Paginate from "./components/pagination";
 const api = "c9ec6e51-269f-4979-a0c7-4d42c125f570";
 
 class App extends Component {
@@ -40,6 +41,10 @@ class App extends Component {
             <Cats cats={currentCats} />
           </Col>
         </Row>
+        <Paginate
+          catsPerPage={this.state.catsPerPage}
+          totalCats={this.state.cats.length}
+        />
       </Container>
     );
   }
