@@ -13,29 +13,27 @@ class DataTable extends Component {
       if (cat.name.toLowerCase().includes(search.toLowerCase())) {
         console.log(cat.name);
         return (
-          <div>
-            <tr key={cat.id}>
-              <td>
-                <a target="_blank" href={cat.cfa_url}>
-                  {cat.name}
-                </a>
-              </td>
-              <Button
-                color="secondary"
-                id="toggler"
-                style={{ marginBottom: "1rem" }}
-              >
-                See Description
-              </Button>
-              <UncontrolledCollapse toggler="#toggler">
-                <td>{cat.description}</td>
-              </UncontrolledCollapse>
-              <td>{cat.origin}</td>
-              <td>{cat.temperament}</td>
-              <td>{cat.dog_friendly}</td>
-              <td></td>
-            </tr>
-          </div>
+          <tr key={cat.id}>
+            <td>
+              <a target="_blank" href={cat.cfa_url}>
+                {cat.name}
+              </a>
+            </td>
+            <Button
+              color="secondary"
+              id="toggler"
+              style={{ marginBottom: "1rem" }}
+            >
+              See Description
+            </Button>
+            <UncontrolledCollapse toggler="#toggler">
+              <td>{cat.description}</td>
+            </UncontrolledCollapse>
+            <td>{cat.origin}</td>
+            <td>{cat.temperament}</td>
+            <td>{cat.dog_friendly}</td>
+            <td></td>
+          </tr>
         );
       }
     });

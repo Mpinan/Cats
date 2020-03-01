@@ -10,7 +10,7 @@ class App extends Component {
     cats: [],
     currentPage: 1,
     catsPerPage: 5,
-    search: "Ab"
+    search: ""
   };
 
   componentDidMount() {
@@ -44,7 +44,6 @@ class App extends Component {
     };
 
     const handleSearch = word => {
-      console.log("hello");
       this.setState({ search: word.target.value });
     };
 
@@ -60,7 +59,8 @@ class App extends Component {
             <Label style={{ margin: "10px 0" }}>Search</Label>
             <Input
               type="text"
-              onSearch={handleSearch}
+              value={search}
+              onChange={word => handleSearch(word)}
               // name="email"
               // id="exampleEmail"
               // placeholder="with a placeholder"
