@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, Form, FormGroup, Input, Label } from "reactstrap";
 import Cats from "./components/cats";
 import Paginate from "./components/pagination";
 const api = "c9ec6e51-269f-4979-a0c7-4d42c125f570";
@@ -23,6 +23,10 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  // updateSearch() {
+  //   this.setState({ search: event.target.value.substr(0, 20) });
+  // }
+
   render() {
     // Pagination
     const indexLastCat = this.state.currentPage * this.state.catsPerPage;
@@ -40,6 +44,17 @@ class App extends Component {
             <h1 style={{ margin: "20px 0" }}>The Purrfect Cattionary</h1>
           </Col>
         </Row>
+        <Form>
+          <FormGroup>
+            <Label style={{ margin: "10px 0" }}>Search</Label>
+            <Input
+              type="text"
+              // name="email"
+              // id="exampleEmail"
+              // placeholder="with a placeholder"
+            />
+          </FormGroup>
+        </Form>
         <Row>
           <Col>
             <Cats cats={currentCats} />

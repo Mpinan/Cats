@@ -3,14 +3,16 @@ import { Table, Button, UncontrolledCollapse } from "reactstrap";
 
 class DataTable extends Component {
   render() {
-    const cats = this.props.cats.map(cat => {
+    // let filteredCats = this.props.cats.filter(cat => {
+    //   return cat.name.indexOf(this.state.search) !== -1;
+    // });
+    let cats = this.props.cats.map(cat => {
       return (
         <tr key={cat.id}>
           <td>
             <a target="_blank" href={cat.cfa_url}>
               {cat.name}
             </a>
-            <td></td>
           </td>
           <Button
             color="secondary"
