@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Form, FormGroup, Input, Label } from "reactstrap";
+// import Search from "./components/search";
 import Cats from "./components/cats";
 import Paginate from "./components/pagination";
 const api = "c9ec6e51-269f-4979-a0c7-4d42c125f570";
@@ -8,7 +9,8 @@ class App extends Component {
   state = {
     cats: [],
     currentPage: 1,
-    catsPerPage: 5
+    catsPerPage: 5,
+    search: "Ab"
   };
 
   componentDidMount() {
@@ -23,18 +25,27 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
+  paginateAlgorithm() {
+    const indexLastCat = this.state.currentPage * this.state.catsPerPage;
+    const indexFirstCat = indexLastCat - this.state.catsPerPage;
+    const currentCats = this.state.cats.slice(indexFirstCat, indexLastCat);
+    return currentCats;
+  }
+
   // updateSearch() {
   //   this.setState({ search: event.target.value.substr(0, 20) });
   // }
 
   render() {
-    // Pagination
-    const indexLastCat = this.state.currentPage * this.state.catsPerPage;
-    const indexFirstCat = indexLastCat - this.state.catsPerPage;
-    const currentCats = this.state.cats.slice(indexFirstCat, indexLastCat);
+    const { catsPerPage, cats, search } = this.state;
 
     const handlePageChange = number => {
       this.setState({ currentPage: number });
+    };
+
+    const handleSearch = word => {
+      console.log("hello");
+      this.setState({ search: word.target.value });
     };
 
     return (
@@ -49,20 +60,22 @@ class App extends Component {
             <Label style={{ margin: "10px 0" }}>Search</Label>
             <Input
               type="text"
+              onSearch={handleSearch}
               // name="email"
               // id="exampleEmail"
               // placeholder="with a placeholder"
             />
           </FormGroup>
         </Form>
+        {/* <Search onSearch={handleSearch} totalCats={cats} search={search} /> */}
         <Row>
           <Col>
-            <Cats cats={currentCats} />
+            <Cats cats={this.paginateAlgorithm()} search={this.state.search} />
           </Col>
         </Row>
         <Paginate
-          catsPerPage={this.state.catsPerPage}
-          totalCats={this.state.cats.length}
+          catsPerPage={catsPerPage}
+          totalCats={cats.length}
           passPage={handlePageChange}
         />
       </Container>
