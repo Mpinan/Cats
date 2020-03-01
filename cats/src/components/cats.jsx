@@ -1,17 +1,37 @@
 import React, { Component } from "react";
-import { Table, Button, UncontrolledCollapse } from "reactstrap";
+
+import Description from "./seeDescription";
+import {
+  Table,
+  Button,
+  UncontrolledCollapse,
+  CardBody,
+  Card
+} from "reactstrap";
 
 class DataTable extends Component {
   render() {
     const { cats, search } = this.props;
-    console.log(cats);
-    // .filter(cat => {
-    //   cat === "Abyssinian";
-    // })
-    // );
+
     let filteredCats = cats.map(cat => {
       if (cat.name.toLowerCase().includes(search.toLowerCase())) {
         console.log(cat.name);
+
+        function clickHandler() {
+          if (cat.id) {
+            return (
+              <UncontrolledCollapse toggler="#toggler">
+                <Card>
+                  <CardBody>
+                    <h1>{console.log(cat.id)}</h1>
+                    <td>{cat.description}</td>
+                  </CardBody>
+                </Card>
+              </UncontrolledCollapse>
+            );
+          }
+        }
+
         return (
           <tr key={cat.id}>
             <td>
@@ -20,15 +40,20 @@ class DataTable extends Component {
               </a>
             </td>
             <Button
+              onClick={clickHandler}
               color="secondary"
               id="toggler"
               style={{ marginBottom: "1rem" }}
             >
               See Description
             </Button>
-            <UncontrolledCollapse toggler="#toggler">
-              <td>{cat.description}</td>
-            </UncontrolledCollapse>
+            {/* <UncontrolledCollapse toggler="#toggler">
+              <Card>
+                <CardBody>
+                  <td>{cat.description}</td>
+                </CardBody>
+              </Card>
+            </UncontrolledCollapse> */}
             <td>{cat.origin}</td>
             <td>{cat.temperament}</td>
             <td>{cat.dog_friendly}</td>
@@ -49,7 +74,7 @@ class DataTable extends Component {
             <th>Dog friendly</th>
           </tr>
         </thead>
-
+        {/* <Description /> */}
         <tbody>{filteredCats}</tbody>
       </Table>
     );

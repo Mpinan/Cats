@@ -11,7 +11,7 @@ const Paginate = ({ catsPerPage, totalCats, passPage }) => {
   return (
     <Pagination aria-label="Page navigation example">
       {pageNumbers.map(number => (
-        <PaginationItem>
+        <PaginationItem key={number.id}>
           <PaginationLink onClick={() => passPage(number)}>
             {number}
           </PaginationLink>

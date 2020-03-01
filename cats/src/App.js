@@ -32,10 +32,6 @@ class App extends Component {
     return currentCats;
   }
 
-  // updateSearch() {
-  //   this.setState({ search: event.target.value.substr(0, 20) });
-  // }
-
   render() {
     const { catsPerPage, cats, search } = this.state;
 
@@ -70,7 +66,11 @@ class App extends Component {
         {/* <Search onSearch={handleSearch} totalCats={cats} search={search} /> */}
         <Row>
           <Col>
-            <Cats cats={this.paginateAlgorithm()} search={this.state.search} />
+            <Cats
+              totalCats={this.state.cats}
+              cats={this.paginateAlgorithm()}
+              search={this.state.search}
+            />
           </Col>
         </Row>
         <Paginate
