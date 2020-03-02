@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import Description from "./seeDescription";
+// import Description from "./seeDescription";
 import {
   Table,
   Button,
@@ -17,21 +17,6 @@ class DataTable extends Component {
       if (cat.name.toLowerCase().includes(search.toLowerCase())) {
         console.log(cat.name);
 
-        function clickHandler() {
-          if (cat.id) {
-            return (
-              <UncontrolledCollapse toggler="#toggler">
-                <Card>
-                  <CardBody>
-                    <h1>{console.log(cat.id)}</h1>
-                    <td>{cat.description}</td>
-                  </CardBody>
-                </Card>
-              </UncontrolledCollapse>
-            );
-          }
-        }
-
         return (
           <tr key={cat.id}>
             <td>
@@ -40,20 +25,20 @@ class DataTable extends Component {
               </a>
             </td>
             <Button
-              onClick={clickHandler}
               color="secondary"
-              id="toggler"
+              id={cat.id}
               style={{ marginBottom: "1rem" }}
             >
               See Description
             </Button>
-            {/* <UncontrolledCollapse toggler="#toggler">
+
+            <UncontrolledCollapse toggler={cat.id}>
               <Card>
-                <CardBody>
-                  <td>{cat.description}</td>
+                <CardBody style={{ marginBottom: "3rem" }}>
+                  <div>{cat.description}</div>
                 </CardBody>
               </Card>
-            </UncontrolledCollapse> */}
+            </UncontrolledCollapse>
             <td>{cat.origin}</td>
             <td>{cat.temperament}</td>
             <td>{cat.dog_friendly}</td>
@@ -74,7 +59,7 @@ class DataTable extends Component {
             <th>Dog friendly</th>
           </tr>
         </thead>
-        {/* <Description /> */}
+        {/* <Description cats={filteredCats} /> */}
         <tbody>{filteredCats}</tbody>
       </Table>
     );
